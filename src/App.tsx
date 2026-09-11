@@ -4,7 +4,7 @@ import type {SubmitEventHandler} from "react";
 
 function App() {
   const agent = useAgent({ agent: 'ThinkAgent' })
-  const { messages, sendMessage } = useAgentChat({ agent })
+  const { messages, sendMessage, clearHistory } = useAgentChat({ agent })
 
   const onSubmit: SubmitEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault()
@@ -24,6 +24,7 @@ function App() {
       <form onSubmit={onSubmit}>
         <input name="input" />
         <button type="submit">보내기</button>
+        <button type="reset" onClick={clearHistory}>리셋</button>
       </form>
       <div>{JSON.stringify(messages)}</div>
     </>
