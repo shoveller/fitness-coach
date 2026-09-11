@@ -5,15 +5,18 @@ import type {SubmitEventHandler} from "react";
 function App() {
   const agent = useAgent({ agent: 'ThinkAgent' })
   const { messages, sendMessage } = useAgentChat({ agent })
+
   const onSubmit: SubmitEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault()
-    const formData = new FormData(e.currentTarget)
-    const text = formData.get('input') as string
-    if (!text?.trim()) {
+    const form = e.currentTarget
+    const text = String(new FormData(form).get('input') ?? '')
+
+    if (!text) {
       return
     }
+
     await sendMessage({ text })
-    e.currentTarget.reset()
+    form.reset()
   }
 
   return (
