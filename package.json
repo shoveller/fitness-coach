@@ -4,6 +4,7 @@
 	"version": "0.0.0",
 	"type": "module",
 	"scripts": {
+		"upload:secret": "wrangler secret bulk .env",
 		"dev": "vite",
 		"build": "tsc -b && vite build",
 		"lint": "oxlint",
@@ -12,8 +13,15 @@
 		"cf-typegen": "wrangler types"
 	},
 	"dependencies": {
+		"@ai-sdk/openai-compatible": "^3.0.47",
+		"@ai-sdk/react": "^4.0.100",
+		"@cloudflare/ai-chat": "^0.11.0",
+		"@cloudflare/think": "^0.17.0",
+		"agents": "^0.22.0",
+		"ai": "^7.0.97",
 		"react": "^19.2.8",
-		"react-dom": "^19.2.8"
+		"react-dom": "^19.2.8",
+		"zod": "^4.6.2"
 	},
 	"devDependencies": {
 		"@cloudflare/vite-plugin": "^1.54.7",
