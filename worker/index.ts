@@ -1,6 +1,6 @@
 import {routeAgentRequest} from "agents";
 
-export { ThinkAgent } from './ThinkAgent.ts'
+export { CoachAgent } from './CoachAgent.ts'
 
 export default {
   async fetch(request , env) {

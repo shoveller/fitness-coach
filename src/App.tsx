@@ -8,7 +8,7 @@ type WorkspaceState = {
 }
 
 function App() {
-  const agent = useAgent<WorkspaceState>({ agent: 'ThinkAgent' })
+  const agent = useAgent<WorkspaceState>({ agent: 'CoachAgent', name: 'default' })
   const { messages, sendMessage, clearHistory, status, isStreaming, isRecovering, error } = useAgentChat({ agent })
   const [input, setInput] = useState('')
   const [actionError, setActionError] = useState('')
@@ -53,8 +53,8 @@ function App() {
 
   return (
     <main style={{ padding: 24, textAlign: 'left', overflowWrap: 'anywhere' }}>
-      <h1>ThinkAgent</h1>
-      <p>날씨를 묻거나 워크스페이스에 파일을 작성하도록 요청하세요.</p>
+      <h1>개인 피트니스 코치</h1>
+      <p>운동 기록, 몸 상태와 목표를 알려주세요. 훈련 계획과 운동 가이드를 함께 확인합니다.</p>
       <section aria-label="대화" aria-busy={busy}>
         {messages.map((message) => (
           <article key={message.id} style={{ marginBlock: 16 }}>
@@ -85,7 +85,7 @@ function App() {
           name="input"
           value={input}
           onChange={(e) => setInput(e.target.value)}
-          placeholder="서울 날씨를 알려주고 weather.txt에 저장해줘"
+          placeholder="오늘 스쿼트 했어. 80kg으로 5회씩 5세트 했어"
           rows={3}
           required
           disabled={busy}

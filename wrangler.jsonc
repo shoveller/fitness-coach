@@ -19,13 +19,16 @@
 	},
 	"durable_objects": {
 		"bindings": [{
-			"name": "ThinkAgent",
-			"class_name": "ThinkAgent"
+			"name": "CoachAgent",
+			"class_name": "CoachAgent"
 		}]
 	},
 	"migrations": [{
 		"tag": "v1",
 		"new_sqlite_classes": ["ThinkAgent"]
+	}, {
+		"tag": "v2",
+		"renamed_classes": [{ "from": "ThinkAgent", "to": "CoachAgent" }]
 	}],
 	"r2_buckets": [
 		{ "binding": "SKILLS", "bucket_name": "hello-skills", "remote": true }

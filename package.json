@@ -5,7 +5,9 @@
 	"type": "module",
 	"scripts": {
 		"upload:secret": "wrangler secret bulk .env",
+		"upload:skills": "wrangler r2 object put hello-skills/skills/squat-form.md --file skills/squat-form.md --content-type text/markdown --remote && wrangler r2 object put hello-skills/skills/running-program.md --file skills/running-program.md --content-type text/markdown --remote && wrangler r2 object put hello-skills/skills/stretching.md --file skills/stretching.md --content-type text/markdown --remote",
 		"dev": "vite",
+		"test:coach": "node tools/coach-smoke.mjs",
 		"build": "tsc -b && vite build",
 		"lint": "oxlint --fix",
 		"preview": "pnpm run build && vite preview",
