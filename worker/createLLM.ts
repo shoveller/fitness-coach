@@ -4,7 +4,7 @@ import {env} from "cloudflare:workers";
 export const createLLM = () => {
     const llm = createOpenAICompatible({
         name: 'proxy',
-        baseURL: 'https://cli-proxy.illuwa.click/v1',
+        baseURL: 'https://models.illuwa.click/v1',
         apiKey: env.API_SERVER_KEY
     })
 
